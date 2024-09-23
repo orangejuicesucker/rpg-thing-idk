@@ -1,11 +1,34 @@
 import time
-
-def death(name):
-    print(name, "you are big dumb")
-    time.sleep(2)
-    print("prepare for crushing")
-    while True:
-        print("hi")
-
-
-death("orang")
+print("insert name")
+playername = input()
+print("loading")
+time.sleep(5)
+print("type anything to begin")
+cheatenable = input()
+if cheatenable == "enablecheats":
+    print("cheats enabled")
+    for i in range(100):
+        print(" ")
+    print("insert strength")
+    strength = input()
+    print("insert dexterity")
+    dexterity = input()
+    print("insert constitution")
+    constitution = input()
+    print("insert intelligence")
+    intelligence = input()
+    print("insert wisdom")
+    wisdom = input()
+    print("insert charisma")
+    charisma = input()
+    for i in range(100):
+        print(" ")
+    print("stats:")
+    print(strength)
+    print(dexterity)
+    print(constitution)
+    print(intelligence)
+    print(wisdom)
+    print(charisma)
+else:
+    print("skibidi")
