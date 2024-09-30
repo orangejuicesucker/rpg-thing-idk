@@ -14,7 +14,7 @@ oldmoney = 0
 print("loading..")
 time.sleep(2)
 print("type anything to begin")
-if input() == "enablecheats" or "debug" or "cheats" or "debugenable" or "cheats enable" or "enabledebug":
+if input() == "debug":
     cheats = True
     for i in range(100):
         print(" ")
@@ -234,7 +234,7 @@ while debugworld == True:
             print(" ")
          print("-debug menu-")
          print("")
-         print("-invincibility-","sure-hit","infinitemoney-")
+         print("-invincibility-","-sure-hit-","-infinitemoney-")
          choice = input()
          if choice == invincibility:
              if invincibility == False:
@@ -342,7 +342,7 @@ while debugworld == True:
                         if playermoney >= 1000:
                             print("obtained weapon creator!")
                             playermoney = playermoney - 3
-                            enemycreator = ItemClass("weapon creator","misc","0","0")
+                            weaponcreator = ItemClass("weapon creator","misc","0","0")
                             time.sleep(1)
                         else:
                             print("you broke donkey butt with only", playermoney, "dabloons")
@@ -352,15 +352,79 @@ while debugworld == True:
     time.sleep(1)
     for i in range(100):
         print(" ")
-    print("-do you wish to use the ATM-")
+    print("-do you wish to use the ATM (it is very very broken and nothing it does works)-")
     print("")
     print("-yes- -no-")
     choice = input()
     if choice == "yes":
-        print("men")
-
-
-
-
-
-    
+        enemycreatorisin = False
+        weaponcreatorisin = False
+        for item in invetoryitems:
+            if item.itemname == "enemy creator":
+                enemycreatorisin = True     
+            elif item.itemname == "weapon creator":
+                weaponcreatorisin = True
+        if enemycreatorisin == True and weaponcreatorisin == True:
+            print("")
+            print("--choose item--")
+            print("-enemy creator- -weapon creator-")
+            choice = input()
+            if choice == "enemy creator":
+                for i in range(100):
+                    print(" ")
+                print("--enemy creator--")
+                print("")
+                print("insert name")
+                enemynameinput = input()
+                print("insert armor class")
+                enemyarmorclassinput = input()
+                print("insert defense")
+                enemydefenseinput = input()
+                print("insert attack damage")
+                enemyattackinput = input()
+                Battle(enemynameinput,enemyarmorclassinput,enemydefenseinput,enemyattackinput)
+            elif choice == "weapon creator":
+                for i in range(100):
+                    print(" ")
+                print("--weapon creator--")
+                print("")
+                print("insert itemname")
+                itemnameinput = input()
+                print("type (attack = weapon like a sword, armor = defense like a sheild)")
+                itemtypeinput = input()
+                print("insert damage (if not weapon then 0)")
+                itemdamageinput = input()
+                print("insert armor bonus (if not armor then 0)")
+                itemarmorbonusinput = input()
+                ItemClass(itemnameinput,itemtypeinput,itemdamageinput,itemarmorbonusinput)
+        elif enemycreatorisin == True and weaponcreatorisin == False:
+            for i in range(100):
+                print(" ")
+            print("--enemy creator--")
+            print("")
+            print("insert name")
+            enemynameinput = input()
+            print("insert armor class")
+            enemyarmorclassinput = int(input())
+            print("insert defense")
+            enemydefenseinput = int(input())
+            print("insert attack damage")
+            enemyattackinput = int(input())
+            Battle(enemynameinput,enemyarmorclassinput,int(enemydefenseinput),enemyattackinput)
+        elif enemycreatorisin == False and weaponcreatorisin == True:
+            for i in range(100):
+                print(" ")
+            print("--weapon creator--")
+            print("")
+            print("insert itemname")
+            itemnameinput = input()
+            print("type (attack = weapon like a sword, armor = defense like a sheild)")
+            itemtypeinput = input()
+            print("insert damage (if not weapon then 0)")
+            itemdamageinput = int(input())
+            print("insert armor bonus (if not armor then 0)")
+            itemarmorbonusinput = int(input())
+            ItemClass(itemnameinput,itemtypeinput,itemdamageinput,itemarmorbonusinput)
+        elif enemycreatorisin == False and weaponcreatorisin == False:
+            print("no valid items")
+            time.sleep(2)
